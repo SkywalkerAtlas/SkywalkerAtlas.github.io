@@ -40,6 +40,8 @@
 
 
 
+  <meta name="baidu-site-verification" content="4V84Y0WgbM">
+
 
 
 
@@ -100,18 +102,18 @@
 
 
 
-  <meta name="description" content="前天还觉得博客搭在Github上不够骚的我回头就真香">
+  <meta name="description" content="前天还觉得博客搭在Github上不够骚的我回头就是一个真香">
 <meta name="keywords" content="config">
 <meta property="og:type" content="article">
 <meta property="og:title" content="光速(大雾)博客配置II -- Github + NexT主题">
 <meta property="og:url" content="http://skywalkeratlas.github.io/2019/02/06/blog-github-next/index.html">
 <meta property="og:site_name" content="CT&#39;s blog">
-<meta property="og:description" content="前天还觉得博客搭在Github上不够骚的我回头就真香">
+<meta property="og:description" content="前天还觉得博客搭在Github上不够骚的我回头就是一个真香">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-06T09:24:26.224Z">
+<meta property="og:updated_time" content="2019-02-06T10:00:47.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="光速(大雾)博客配置II -- Github + NexT主题">
-<meta name="twitter:description" content="前天还觉得博客搭在Github上不够骚的我回头就真香">
+<meta name="twitter:description" content="前天还觉得博客搭在Github上不够骚的我回头就是一个真香">
 
 
 
@@ -406,7 +408,7 @@
                 
               
 
-              <time title="创建时间：2019-02-06 15:04:24 / 修改时间：17:24:26" itemprop="dateCreated datePublished" datetime="2019-02-06T15:04:24+08:00">2019-02-06</time>
+              <time title="创建时间：2019-02-06 15:04:24 / 修改时间：18:00:47" itemprop="dateCreated datePublished" datetime="2019-02-06T15:04:24+08:00">2019-02-06</time>
             
 
             
@@ -439,7 +441,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.3k</span>
+                <span title="本文字数">1.4k</span>
               
 
               
@@ -459,7 +461,7 @@
           
 
           
-            <div class="post-description">前天还觉得博客搭在Github上不够骚的我回头就真香</div>
+            <div class="post-description">前天还觉得博客搭在Github上不够骚的我回头就是一个真香</div>
           
 
         </div>
@@ -477,7 +479,7 @@
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>年三十才配完的博客初一就访问异常了，懂也不懂前端的我查了一波，发现好像是因为服务器访问国内的cdn出了点问题，然后archer主题就刷不出来网页了（还有这种操作）。<br>转念一想这服务器成天被拿来做一些富强民主文明和谐的事，搞不好哪天就被墙了，还是把博客部署在github上来得靠谱一点（真香）。顺便换一个更稳定的Hexo主题，NexT。</p>
 <h1 id="Github-Hexo博客配置"><a href="#Github-Hexo博客配置" class="headerlink" title="Github + Hexo博客配置"></a>Github + Hexo博客配置</h1><h2 id="第零步-在自己电脑上重新装一遍nodejs和Hexo等"><a href="#第零步-在自己电脑上重新装一遍nodejs和Hexo等" class="headerlink" title="第零步 在自己电脑上重新装一遍nodejs和Hexo等"></a>第零步 在自己电脑上重新装一遍nodejs和Hexo等</h2><p>（国内下载这些果然没有国外服务器快啊。。）<br>用<code>hexo init blog</code>重建一下Hexo站点</p>
-<h2 id="第一步-github-io建立"><a href="#第一步-github-io建立" class="headerlink" title="第一步 \.github.io建立"></a>第一步 \<username\>.github.io建立</username\></h2><p>因为之前也搭过博客，这步就不记录了。总之在github上建立一个叫<code>&lt;username&gt;.github.io</code>的仓库就行，<code>username</code>需要和自己的github用户名<strong>完全一致</strong>，访问<code>https://&lt;username&gt;.github.io</code>的时候github就会访问这个仓库。</p>
+<h2 id="第一步-lt-username-gt-github-io建立"><a href="#第一步-lt-username-gt-github-io建立" class="headerlink" title="第一步 &lt;username&gt;.github.io建立"></a>第一步 <code>&lt;username&gt;.github.io</code>建立</h2><p>因为之前也搭过博客，这步就不记录了。总之在github上建立一个叫<code>&lt;username&gt;.github.io</code>的仓库就行，<code>username</code>需要和自己的github用户名<strong>完全一致</strong>，访问<code>https://&lt;username&gt;.github.io</code>的时候github就会访问这个仓库。</p>
 <h2 id="第二步-更改Hexo部署配置"><a href="#第二步-更改Hexo部署配置" class="headerlink" title="第二步 更改Hexo部署配置"></a>第二步 更改Hexo部署配置</h2><p>将<code>blog/_config.yml</code>中的<code>#deploy</code>项改为<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:&lt;usernanme&gt;/&lt;username&gt;.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure></p>
 <p>大功告成（比自己配Nginx服务快多了，这才是真光速嘛）</p>
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>发布并部署Hexo<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g -d</span><br></pre></td></tr></table></figure></p>
@@ -492,7 +494,12 @@
 <li>打开<code>Post Codeblock Copy</code></li>
 </ul>
 <h2 id="第三方服务设置"><a href="#第三方服务设置" class="headerlink" title="第三方服务设置"></a>第三方服务设置</h2><p>因为github服务器在北美的原因，优先选择海外服务商</p>
-<h3 id="webmaster"><a href="#webmaster" class="headerlink" title="webmaster"></a>webmaster</h3><h3 id="网站分析工具"><a href="#网站分析工具" class="headerlink" title="网站分析工具"></a>网站分析工具</h3><ul>
+<h3 id="webmaster"><a href="#webmaster" class="headerlink" title="webmaster"></a>webmaster</h3><ul>
+<li><a href="https://theme-next.org/docs/third-party-services/statistics-and-analytics/Google-Webmaster-Tools" target="_blank" rel="noopener">Google Webmaster Tools</a></li>
+<li><a href="https://theme-next.org/docs/third-party-services/statistics-and-analytics/Bing-Webmaster-Tools" target="_blank" rel="noopener">Bing Webmaster Tools</a></li>
+<li><a href="https://theme-next.org/docs/third-party-services/statistics-and-analytics/Baidu-Webmaster-Tools" target="_blank" rel="noopener">Baidu Webmaster Tools</a></li>
+</ul>
+<h3 id="网站分析工具"><a href="#网站分析工具" class="headerlink" title="网站分析工具"></a>网站分析工具</h3><ul>
 <li><a href="https://theme-next.org/docs/third-party-services/statistics-and-analytics/#Google-Analytics" target="_blank" rel="noopener">Google Analytics</a><h3 id="阅读统计"><a href="#阅读统计" class="headerlink" title="阅读统计"></a>阅读统计</h3></li>
 <li><a href="https://theme-next.org/docs/third-party-services/statistics-and-analytics/#Firebase" target="_blank" rel="noopener">Firebase</a></li>
 </ul>
@@ -691,7 +698,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Github-Hexo博客配置"><span class="nav-number">2.</span> <span class="nav-text">Github + Hexo博客配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第零步-在自己电脑上重新装一遍nodejs和Hexo等"><span class="nav-number">2.1.</span> <span class="nav-text">第零步 在自己电脑上重新装一遍nodejs和Hexo等</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步-github-io建立"><span class="nav-number">2.2.</span> <span class="nav-text">第一步 \.github.io建立</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步-更改Hexo部署配置"><span class="nav-number">2.3.</span> <span class="nav-text">第二步 更改Hexo部署配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">2.4.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NexT主题"><span class="nav-number">3.</span> <span class="nav-text">NexT主题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#主题选择"><span class="nav-number">3.1.</span> <span class="nav-text">主题选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题设置"><span class="nav-number">3.2.</span> <span class="nav-text">主题设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方服务设置"><span class="nav-number">3.3.</span> <span class="nav-text">第三方服务设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#webmaster"><span class="nav-number">3.3.1.</span> <span class="nav-text">webmaster</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网站分析工具"><span class="nav-number">3.3.2.</span> <span class="nav-text">网站分析工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阅读统计"><span class="nav-number">3.3.3.</span> <span class="nav-text">阅读统计</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Github-Hexo博客配置"><span class="nav-number">2.</span> <span class="nav-text">Github + Hexo博客配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第零步-在自己电脑上重新装一遍nodejs和Hexo等"><span class="nav-number">2.1.</span> <span class="nav-text">第零步 在自己电脑上重新装一遍nodejs和Hexo等</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步-lt-username-gt-github-io建立"><span class="nav-number">2.2.</span> <span class="nav-text">第一步 &lt;username&gt;.github.io建立</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步-更改Hexo部署配置"><span class="nav-number">2.3.</span> <span class="nav-text">第二步 更改Hexo部署配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">2.4.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NexT主题"><span class="nav-number">3.</span> <span class="nav-text">NexT主题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#主题选择"><span class="nav-number">3.1.</span> <span class="nav-text">主题选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题设置"><span class="nav-number">3.2.</span> <span class="nav-text">主题设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方服务设置"><span class="nav-number">3.3.</span> <span class="nav-text">第三方服务设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#webmaster"><span class="nav-number">3.3.1.</span> <span class="nav-text">webmaster</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网站分析工具"><span class="nav-number">3.3.2.</span> <span class="nav-text">网站分析工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阅读统计"><span class="nav-number">3.3.3.</span> <span class="nav-text">阅读统计</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -732,7 +739,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">4 分钟</span>
+    <span title="站点阅读时长">5 分钟</span>
   
 </div>
 
