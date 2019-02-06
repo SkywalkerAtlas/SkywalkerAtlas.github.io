@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="CT&#39;s blog">
 <meta property="og:description" content="前天还觉得博客搭在Github上不够骚的我回头就是一个真香">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-06T10:37:26.459Z">
+<meta property="og:updated_time" content="2019-02-06T11:29:41.663Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="光速(大雾)博客配置II -- Github + NexT主题">
 <meta name="twitter:description" content="前天还觉得博客搭在Github上不够骚的我回头就是一个真香">
@@ -408,7 +408,7 @@
                 
               
 
-              <time title="创建时间：2019-02-06 15:04:24 / 修改时间：18:37:26" itemprop="dateCreated datePublished" datetime="2019-02-06T15:04:24+08:00">2019-02-06</time>
+              <time title="创建时间：2019-02-06 15:04:24 / 修改时间：19:29:41" itemprop="dateCreated datePublished" datetime="2019-02-06T15:04:24+08:00">2019-02-06</time>
             
 
             
@@ -466,7 +466,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.6k</span>
+                <span title="本文字数">3.3k</span>
               
 
               
@@ -480,7 +480,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长">3 分钟</span>
               
             </div>
           
@@ -507,7 +507,7 @@
 <h2 id="第一步-lt-username-gt-github-io建立"><a href="#第一步-lt-username-gt-github-io建立" class="headerlink" title="第一步 &lt;username&gt;.github.io建立"></a>第一步 <code>&lt;username&gt;.github.io</code>建立</h2><p>因为之前也搭过博客，这步就不记录了。总之在github上建立一个叫<code>&lt;username&gt;.github.io</code>的仓库就行，<code>username</code>需要和自己的github用户名<strong>完全一致</strong>，访问<code>https://&lt;username&gt;.github.io</code>的时候github就会访问这个仓库。</p>
 <h2 id="第二步-更改Hexo部署配置"><a href="#第二步-更改Hexo部署配置" class="headerlink" title="第二步 更改Hexo部署配置"></a>第二步 更改Hexo部署配置</h2><p>将<code>blog/_config.yml</code>中的<code>#deploy</code>项改为<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:&lt;usernanme&gt;/&lt;username&gt;.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure></p>
 <p>大功告成（比自己配Nginx服务快多了，这才是真光速嘛）</p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>发布并部署Hexo<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g -d</span><br></pre></td></tr></table></figure></p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>发布并部署Hexo<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo g -d</span><br></pre></td></tr></table></figure></p>
 <p>然后就可以在<code>&lt;username&gt;.github.io</code>上看到博客啦<br>不过因为github.io的更新会有一定的延迟，可以先通过打开<code>hexo server</code>观察修改后的变化(<code>hexo clean &amp;&amp; hexo g</code>就行)，最后再push到github上去</p>
 <h1 id="NexT主题"><a href="#NexT主题" class="headerlink" title="NexT主题"></a>NexT主题</h1><p>NexT主题作为一款更新维护了好几年的热门主题，现在已经正式移交给了theme-NexT组织来维护，比较靠谱，文档也更加全面。虽然我好喜欢archer的头图和它整体的莫名萌风格，但作为一个想长期写写博客又没太大精力研究前端的人（放开我我要炼丹）来说NexT显然是更好的选择，而且NexT也支持自定义风格，有精力了还是可以搞一搞的。<br>所有的搭建步骤均按照<a href="https://theme-next.org/docs/" target="_blank" rel="noopener">NexT官方文档</a>完成，这文档是真友好啊。<br>记录下对主题作出的改变方便日后修锅</p>
 <h2 id="主题选择"><a href="#主题选择" class="headerlink" title="主题选择"></a>主题选择</h2><p>NexT自带四种主题，选了<code>Gemini</code>看起来内容更加全一些</p>
@@ -518,20 +518,49 @@
 <li>打开<code>Post Wordcount</code></li>
 <li>打开<code>Post Codeblock Copy</code></li>
 </ul>
-<h2 id="样式更改"><a href="#样式更改" class="headerlink" title="样式更改"></a>样式更改</h2><h3 id="把文章底部的-标签换成标签图标"><a href="#把文章底部的-标签换成标签图标" class="headerlink" title="把文章底部的#标签换成标签图标 "></a>把文章底部的<code>#</code>标签换成标签图标 <i class="fa fa-tag"></i></h3><p>修改<code>next/layout/_macro/post.swig</code>，将<code>rel=&quot;tag&quot;</code>后的<code>#</code>换成<code>&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code></p>
+<h2 id="样式更改"><a href="#样式更改" class="headerlink" title="样式更改"></a>样式更改</h2><h3 id="把文章底部的-标签换成标签图标"><a href="#把文章底部的-标签换成标签图标" class="headerlink" title="把文章底部的#标签换成标签图标"></a>把文章底部的<code>#</code>标签换成标签图标</h3><p>修改<code>next/layout/_macro/post.swig</code>，将<code>rel=&quot;tag&quot;</code>后的<code>#</code>换成<code>&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code></p>
 <h2 id="第三方服务设置"><a href="#第三方服务设置" class="headerlink" title="第三方服务设置"></a>第三方服务设置</h2><p>因为github服务器在北美的原因，优先选择海外服务商</p>
 <h3 id="webmaster（推广-搜索引擎收录）"><a href="#webmaster（推广-搜索引擎收录）" class="headerlink" title="webmaster（推广/搜索引擎收录）"></a>webmaster（推广/搜索引擎收录）</h3><ul>
-<li><a href="https://theme-next.org/docs/third-party-services/statistics-and-analytics/Google-Webmaster-Tools" target="_blank" rel="noopener">Google Webmaster Tools</a></li>
-<li><a href="https://theme-next.org/docs/third-party-services/statistics-and-analytics/Bing-Webmaster-Tools" target="_blank" rel="noopener">Bing Webmaster Tools</a></li>
+<li><a href="https://theme-next.org/docs/third-party-services/statistics-and-analytics/#Google-Webmaster-Tools" target="_blank" rel="noopener">Google Webmaster Tools</a></li>
+<li><a href="https://theme-next.org/docs/third-party-services/statistics-and-analytics/#Bing-Webmaster-Tools" target="_blank" rel="noopener">Bing Webmaster Tools</a></li>
 <li><del>Yandex Webmaster Tools</del>（俄罗斯网站，我寻思着我也不会俄语就懒得弄了）</li>
-<li><a href="https://theme-next.org/docs/third-party-services/statistics-and-analytics/Baidu-Webmaster-Tools" target="_blank" rel="noopener">Baidu Webmaster Tools</a></li>
+<li><a href="https://theme-next.org/docs/third-party-services/statistics-and-analytics/#Baidu-Webmaster-Tools" target="_blank" rel="noopener">Baidu Webmaster Tools</a></li>
 </ul>
 <p>百度是最骚的个人信息要一大堆验证还巨慢（小声bb</p>
 <h3 id="网站分析工具"><a href="#网站分析工具" class="headerlink" title="网站分析工具"></a>网站分析工具</h3><ul>
-<li><a href="https://theme-next.org/docs/third-party-services/statistics-and-analytics/#Google-Analytics" target="_blank" rel="noopener">Google Analytics</a><h3 id="阅读统计"><a href="#阅读统计" class="headerlink" title="阅读统计"></a>阅读统计</h3></li>
-<li><a href="https://theme-next.org/docs/third-party-services/statistics-and-analytics/#Firebase" target="_blank" rel="noopener">Firebase</a></li>
-<li><a href="https://theme-next.org/docs/third-party-services/statistics-and-analytics/Busuanzi-Counting-China" target="_blank" rel="noopener">busuanzi</a> （提供每页阅读统计）</li>
+<li><a href="https://theme-next.org/docs/third-party-services/statistics-and-analytics/#Google-Analytics" target="_blank" rel="noopener">Google Analytics</a></li>
 </ul>
+<h3 id="阅读统计"><a href="#阅读统计" class="headerlink" title="阅读统计"></a>阅读统计</h3><ul>
+<li><a href="https://theme-next.org/docs/third-party-services/statistics-and-analytics/#Firebase" target="_blank" rel="noopener">Firebase</a></li>
+<li><a href="https://theme-next.org/docs/third-party-services/statistics-and-analytics/#Busuanzi-Counting-China" target="_blank" rel="noopener">busuanzi</a> （提供每页阅读统计）</li>
+</ul>
+<h3 id="其余插件"><a href="#其余插件" class="headerlink" title="其余插件"></a>其余插件</h3><ul>
+<li><a href="https://theme-next.org/docs/third-party-services/external-libraries/#Reading-Progress" target="_blank" rel="noopener">Reading Progress</a></li>
+<li><a href="https://theme-next.org/docs/third-party-services/external-libraries/#Canvas-Nest" target="_blank" rel="noopener">Canvas Nest</a></li>
+</ul>
+<h3 id="LaTex支持"><a href="#LaTex支持" class="headerlink" title="LaTex支持"></a>LaTex支持</h3><h4 id="渲染引擎选择"><a href="#渲染引擎选择" class="headerlink" title="渲染引擎选择"></a>渲染引擎选择</h4><p>NexT支持两种渲染引擎：<code>mathjax</code>和<code>katex</code><br><code>katex</code>有着更快的速度（本机测试10x）<a href="https://www.intmath.com/cg5/katex-mathjax-comparison.php" target="_blank" rel="noopener">渲染速度比较</a>，katex所用的渲染器功能也更为全面</p>
+<p>然鹅，<code>katex</code>所支持的LaTex公式不全（日常用其实没多大差别），关键是<code>katex</code>语法貌似还与标准LaTex有点区别，作为一个LaTex菜鸡望而却步，而且<code>katex</code>渲染在我机子上有一点点问题，暂时还是选用<code>mathjax</code>（<code>mathjax</code>还支持公式引用，这个赞一波）</p>
+<h4 id="渲染引擎安装"><a href="#渲染引擎安装" class="headerlink" title="渲染引擎安装"></a>渲染引擎安装</h4><p>首先卸载原先的markdown renderer，并安装kramed（pandoc在mac上存在 <a href="https://github.com/wzpan/hexo-renderer-pandoc/issues/5" target="_blank" rel="noopener">issue</a>)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm un hexo-renderer-marked --save</span><br><span class="line">$ npm i hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
+<h4 id="开启math功能"><a href="#开启math功能" class="headerlink" title="开启math功能"></a>开启math功能</h4><p>在<code>next/_config.yml</code>中，打开<code>math</code>选项并选择<code>mathjax</code><br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line"><span class="attr">  engine:</span> <span class="string">mathjax</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="解决重复渲染问题"><a href="#解决重复渲染问题" class="headerlink" title="解决重复渲染问题"></a>解决重复渲染问题</h4><p>打开<code>math</code>并重新部署后，发现网页虽然能渲染公式，但会重复渲染，参照 <a href="https://nathaniel.blog/tutorials/make-hexo-support-math-again/" target="_blank" rel="noopener">Make Hexo Support Math Again</a> 将 <code>&lt;your-project-dir&gt;/node_modules/hexo-renderer-kramed/lib/renderer.js</code> 中的<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatText</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Fit kramed's rule: $$ + \1 + $$</span></span><br><span class="line">    <span class="keyword">return</span> text.replace(<span class="regexp">/`\$(.*?)\$`/g</span>, <span class="string">'$$$$$1$$$$'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>改成<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatText</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> text;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="解决无法渲染行内公式问题"><a href="#解决无法渲染行内公式问题" class="headerlink" title="解决无法渲染行内公式问题"></a>解决无法渲染行内公式问题</h4><p>参考 <a href="https://blog.csdn.net/wgshun616/article/details/81019687" target="_blank" rel="noopener">Hexo 的 Next 主题中渲染 MathJax 数学公式
+</a> 解决行内语义冲突，将<code>&lt;your-project-dir&gt;/node_modules/kramed/rules/inline.js</code>中的<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">escape</span>: <span class="regexp">/^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/</span>,</span><br></pre></td></tr></table></figure></p>
+<p>改成<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">escape</span>: <span class="regexp">/^\\([`*\[\]()#$+\-.!_&gt;])/</span>,</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">em: <span class="regexp">/^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span>,</span><br></pre></td></tr></table></figure>
+<p>改成<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">em: <span class="regexp">/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span>,</span><br></pre></td></tr></table></figure></p>
+<h4 id="测试-1"><a href="#测试-1" class="headerlink" title="测试"></a>测试</h4><p>这是一个行内公式 $R_{m \times n} = U_{m \times m} S_{m \times n} V_{n \times n}’$ 测试</p>
+<script type="math/tex; mode=display">\begin{bmatrix}
+    x_{11}       & x_{12} & x_{13} & \dots & x_{1n} \\
+    x_{21}       & x_{22} & x_{23} & \dots & x_{2n} \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    x_{d1}       & x_{d2} & x_{d3} & \dots & x_{dn}
+\end{bmatrix}</script><script type="math/tex; mode=display">\begin{equation}
+e=mc^2
+\end{equation}\label{eq1}</script><p>The famous matter-energy equation $\eqref{eq1}$ proposed by Einstein…</p>
+<p>使用<code>\tag{}</code>标记公式</p>
+<script type="math/tex; mode=display">x+1\over\sqrt{1-x^2} \tag{i}\label{eq_tag}</script><p>Equation $\eqref{eq_tag}$ use <code>\tag{}</code> instead of automatic numbering.</p>
 
       
     </div>
@@ -749,7 +778,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Github-Hexo博客配置"><span class="nav-number">2.</span> <span class="nav-text">Github + Hexo博客配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第零步-在自己电脑上重新装一遍nodejs和Hexo等"><span class="nav-number">2.1.</span> <span class="nav-text">第零步 在自己电脑上重新装一遍nodejs和Hexo等</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步-lt-username-gt-github-io建立"><span class="nav-number">2.2.</span> <span class="nav-text">第一步 &lt;username&gt;.github.io建立</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步-更改Hexo部署配置"><span class="nav-number">2.3.</span> <span class="nav-text">第二步 更改Hexo部署配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">2.4.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NexT主题"><span class="nav-number">3.</span> <span class="nav-text">NexT主题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#主题选择"><span class="nav-number">3.1.</span> <span class="nav-text">主题选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题设置"><span class="nav-number">3.2.</span> <span class="nav-text">主题设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样式更改"><span class="nav-number">3.3.</span> <span class="nav-text">样式更改</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#把文章底部的-标签换成标签图标"><span class="nav-number">3.3.1.</span> <span class="nav-text">把文章底部的#标签换成标签图标 </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方服务设置"><span class="nav-number">3.4.</span> <span class="nav-text">第三方服务设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#webmaster（推广-搜索引擎收录）"><span class="nav-number">3.4.1.</span> <span class="nav-text">webmaster（推广/搜索引擎收录）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网站分析工具"><span class="nav-number">3.4.2.</span> <span class="nav-text">网站分析工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阅读统计"><span class="nav-number">3.4.3.</span> <span class="nav-text">阅读统计</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Github-Hexo博客配置"><span class="nav-number">2.</span> <span class="nav-text">Github + Hexo博客配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第零步-在自己电脑上重新装一遍nodejs和Hexo等"><span class="nav-number">2.1.</span> <span class="nav-text">第零步 在自己电脑上重新装一遍nodejs和Hexo等</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步-lt-username-gt-github-io建立"><span class="nav-number">2.2.</span> <span class="nav-text">第一步 &lt;username&gt;.github.io建立</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步-更改Hexo部署配置"><span class="nav-number">2.3.</span> <span class="nav-text">第二步 更改Hexo部署配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">2.4.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NexT主题"><span class="nav-number">3.</span> <span class="nav-text">NexT主题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#主题选择"><span class="nav-number">3.1.</span> <span class="nav-text">主题选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题设置"><span class="nav-number">3.2.</span> <span class="nav-text">主题设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样式更改"><span class="nav-number">3.3.</span> <span class="nav-text">样式更改</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#把文章底部的-标签换成标签图标"><span class="nav-number">3.3.1.</span> <span class="nav-text">把文章底部的#标签换成标签图标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方服务设置"><span class="nav-number">3.4.</span> <span class="nav-text">第三方服务设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#webmaster（推广-搜索引擎收录）"><span class="nav-number">3.4.1.</span> <span class="nav-text">webmaster（推广/搜索引擎收录）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网站分析工具"><span class="nav-number">3.4.2.</span> <span class="nav-text">网站分析工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阅读统计"><span class="nav-number">3.4.3.</span> <span class="nav-text">阅读统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其余插件"><span class="nav-number">3.4.4.</span> <span class="nav-text">其余插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LaTex支持"><span class="nav-number">3.4.5.</span> <span class="nav-text">LaTex支持</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#渲染引擎选择"><span class="nav-number">3.4.5.1.</span> <span class="nav-text">渲染引擎选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#渲染引擎安装"><span class="nav-number">3.4.5.2.</span> <span class="nav-text">渲染引擎安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开启math功能"><span class="nav-number">3.4.5.3.</span> <span class="nav-text">开启math功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决重复渲染问题"><span class="nav-number">3.4.5.4.</span> <span class="nav-text">解决重复渲染问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决无法渲染行内公式问题"><span class="nav-number">3.4.5.5.</span> <span class="nav-text">解决无法渲染行内公式问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试-1"><span class="nav-number">3.4.5.6.</span> <span class="nav-text">测试</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -781,7 +810,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">5k</span>
+    <span title="站点总字数">7k</span>
   
 
   
@@ -790,7 +819,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">5 分钟</span>
+    <span title="站点阅读时长">6 分钟</span>
   
 </div>
 
