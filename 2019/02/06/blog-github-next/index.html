@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="CT&#39;s blog">
 <meta property="og:description" content="前天还觉得博客搭在Github上不够骚的我回头就是一个真香">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-06T11:29:41.663Z">
+<meta property="og:updated_time" content="2019-02-06T11:34:50.187Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="光速(大雾)博客配置II -- Github + NexT主题">
 <meta name="twitter:description" content="前天还觉得博客搭在Github上不够骚的我回头就是一个真香">
@@ -408,7 +408,7 @@
                 
               
 
-              <time title="创建时间：2019-02-06 15:04:24 / 修改时间：19:29:41" itemprop="dateCreated datePublished" datetime="2019-02-06T15:04:24+08:00">2019-02-06</time>
+              <time title="创建时间：2019-02-06 15:04:24 / 修改时间：19:34:50" itemprop="dateCreated datePublished" datetime="2019-02-06T15:04:24+08:00">2019-02-06</time>
             
 
             
@@ -545,8 +545,7 @@
 <h4 id="开启math功能"><a href="#开启math功能" class="headerlink" title="开启math功能"></a>开启math功能</h4><p>在<code>next/_config.yml</code>中，打开<code>math</code>选项并选择<code>mathjax</code><br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line"><span class="attr">  engine:</span> <span class="string">mathjax</span></span><br></pre></td></tr></table></figure></p>
 <h4 id="解决重复渲染问题"><a href="#解决重复渲染问题" class="headerlink" title="解决重复渲染问题"></a>解决重复渲染问题</h4><p>打开<code>math</code>并重新部署后，发现网页虽然能渲染公式，但会重复渲染，参照 <a href="https://nathaniel.blog/tutorials/make-hexo-support-math-again/" target="_blank" rel="noopener">Make Hexo Support Math Again</a> 将 <code>&lt;your-project-dir&gt;/node_modules/hexo-renderer-kramed/lib/renderer.js</code> 中的<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatText</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Fit kramed's rule: $$ + \1 + $$</span></span><br><span class="line">    <span class="keyword">return</span> text.replace(<span class="regexp">/`\$(.*?)\$`/g</span>, <span class="string">'$$$$$1$$$$'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>改成<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatText</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> text;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="解决无法渲染行内公式问题"><a href="#解决无法渲染行内公式问题" class="headerlink" title="解决无法渲染行内公式问题"></a>解决无法渲染行内公式问题</h4><p>参考 <a href="https://blog.csdn.net/wgshun616/article/details/81019687" target="_blank" rel="noopener">Hexo 的 Next 主题中渲染 MathJax 数学公式
-</a> 解决行内语义冲突，将<code>&lt;your-project-dir&gt;/node_modules/kramed/rules/inline.js</code>中的<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">escape</span>: <span class="regexp">/^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/</span>,</span><br></pre></td></tr></table></figure></p>
+<h4 id="解决无法渲染行内公式问题"><a href="#解决无法渲染行内公式问题" class="headerlink" title="解决无法渲染行内公式问题"></a>解决无法渲染行内公式问题</h4><p>参考 <a href="https://blog.csdn.net/wgshun616/article/details/81019687" target="_blank" rel="noopener">Hexo 的 Next 主题中渲染 MathJax 数学公式</a> 解决行内语义冲突，将<code>&lt;your-project-dir&gt;/node_modules/kramed/rules/inline.js</code>中的<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">escape</span>: <span class="regexp">/^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/</span>,</span><br></pre></td></tr></table></figure></p>
 <p>改成<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">escape</span>: <span class="regexp">/^\\([`*\[\]()#$+\-.!_&gt;])/</span>,</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">em: <span class="regexp">/^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span>,</span><br></pre></td></tr></table></figure>
 <p>改成<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">em: <span class="regexp">/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span>,</span><br></pre></td></tr></table></figure></p>
