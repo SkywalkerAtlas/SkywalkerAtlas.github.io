@@ -96,24 +96,25 @@
 
 
 
-  <meta name="description" content="sudo kill -9 $(pidof depression)">
+  <meta name="description" content="前天还觉得博客搭在Github上不够骚的我回头就真香">
+<meta name="keywords" content="config">
 <meta property="og:type" content="article">
-<meta property="og:title" content="test2">
-<meta property="og:url" content="http://skywalkeratlas.github.io/2019/02/05/test2/index.html">
+<meta property="og:title" content="光速(大雾)博客配置II -- Github + NexT主题">
+<meta property="og:url" content="http://skywalkeratlas.github.io/2019/02/06/blog-github-next/index.html">
 <meta property="og:site_name" content="CT&#39;s blog">
-<meta property="og:description" content="sudo kill -9 $(pidof depression)">
+<meta property="og:description" content="前天还觉得博客搭在Github上不够骚的我回头就真香">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-05T09:15:49.768Z">
+<meta property="og:updated_time" content="2019-02-06T09:05:12.020Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="test2">
-<meta name="twitter:description" content="sudo kill -9 $(pidof depression)">
+<meta name="twitter:title" content="光速(大雾)博客配置II -- Github + NexT主题">
+<meta name="twitter:description" content="前天还觉得博客搭在Github上不够骚的我回头就真香">
 
 
 
 
 
 
-  <link rel="canonical" href="http://skywalkeratlas.github.io/2019/02/05/test2/">
+  <link rel="canonical" href="http://skywalkeratlas.github.io/2019/02/06/blog-github-next/">
 
 
 
@@ -123,11 +124,19 @@
   };
 </script>
 
-  <title>test2 | CT's blog</title>
+  <title>光速(大雾)博客配置II -- Github + NexT主题 | CT's blog</title>
   
 
 
 
+
+  <script async src="//www.googletagmanager.com/gtag/js?id=UA-133933001-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-133933001-1');
+  </script>
 
 
 
@@ -350,7 +359,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://skywalkeratlas.github.io/2019/02/05/test2/">
+    <link itemprop="mainEntityOfPage" href="http://skywalkeratlas.github.io/2019/02/06/blog-github-next/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cao Ting">
@@ -367,7 +376,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">test2
+          <h1 class="post-title" itemprop="name headline">光速(大雾)博客配置II -- Github + NexT主题
 
               
             
@@ -393,7 +402,7 @@
                 
               
 
-              <time title="创建时间：2019-02-05 16:37:28 / 修改时间：17:15:49" itemprop="dateCreated datePublished" datetime="2019-02-05T16:37:28+08:00">2019-02-05</time>
+              <time title="创建时间：2019-02-06 15:04:24 / 修改时间：17:05:12" itemprop="dateCreated datePublished" datetime="2019-02-06T15:04:24+08:00">2019-02-06</time>
             
 
             
@@ -426,7 +435,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">0</span>
+                <span title="本文字数">1.3k</span>
               
 
               
@@ -446,6 +455,8 @@
           
 
           
+            <div class="post-description">前天还觉得博客搭在Github上不够骚的我回头就真香</div>
+          
 
         </div>
       </header>
@@ -460,7 +471,27 @@
       
 
       
-        
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>年三十才配完的博客初一就访问异常了，懂也不懂前端的我查了一波，发现好像是因为服务器访问国内的cdn出了点问题，然后archer主题就刷不出来网页了（还有这种操作）。<br>转念一想这服务器成天被拿来做一些富强民主文明和谐的事，搞不好哪天就被墙了，还是把博客部署在github上来得靠谱一点（真香）。顺便换一个更稳定的Hexo主题，NexT。</p>
+<h1 id="Github-Hexo博客配置"><a href="#Github-Hexo博客配置" class="headerlink" title="Github + Hexo博客配置"></a>Github + Hexo博客配置</h1><h2 id="第零步-在自己电脑上重新装一遍nodejs和Hexo等"><a href="#第零步-在自己电脑上重新装一遍nodejs和Hexo等" class="headerlink" title="第零步 在自己电脑上重新装一遍nodejs和Hexo等"></a>第零步 在自己电脑上重新装一遍nodejs和Hexo等</h2><p>（国内下载这些果然没有国外服务器快啊。。）<br>用<code>hexo init blog</code>重建一下Hexo站点</p>
+<h2 id="第一步-github-io建立"><a href="#第一步-github-io建立" class="headerlink" title="第一步 \.github.io建立"></a>第一步 \<username\>.github.io建立</username\></h2><p>因为之前也搭过博客，这步就不记录了。总之在github上建立一个叫<code>&lt;username&gt;.github.io</code>的仓库就行，<code>username</code>需要和自己的github用户名<strong>完全一致</strong>，访问<code>https://&lt;username&gt;.github.io</code>的时候github就会访问这个仓库。</p>
+<h2 id="第二步-更改Hexo部署配置"><a href="#第二步-更改Hexo部署配置" class="headerlink" title="第二步 更改Hexo部署配置"></a>第二步 更改Hexo部署配置</h2><p>将<code>blog/_config.yml</code>中的<code>#deploy</code>项改为<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:&lt;usernanme&gt;/&lt;username&gt;.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure></p>
+<p>大功告成（比自己配Nginx服务快多了，这才是真光速嘛）</p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>发布并部署Hexo<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g -d</span><br></pre></td></tr></table></figure></p>
+<p>然后就可以在<code>&lt;username&gt;.github.io</code>上看到博客啦<br>不过因为github.io的更新会有一定的延迟，可以先通过打开<code>hexo server</code>观察修改后的变化(<code>hexo clean &amp;&amp; hexo g</code>就行)，最后再push到github上去</p>
+<h1 id="NexT主题"><a href="#NexT主题" class="headerlink" title="NexT主题"></a>NexT主题</h1><p>NexT主题作为一款更新维护了好几年的热门主题，现在已经正式移交给了theme-NexT组织来维护，比较靠谱，文档也更加全面。虽然我好喜欢archer的头图和它整体的莫名萌风格，但作为一个想长期写写博客又没太大精力研究前端的人（放开我我要炼丹）来说NexT显然是更好的选择，而且NexT也支持自定义风格，有精力了还是可以搞一搞的。<br>所有的搭建步骤均按照<a href="https://theme-next.org/docs/" target="_blank" rel="noopener">NexT官方文档</a>完成，这文档是真友好啊。<br>记录下对主题作出的改变方便日后修锅</p>
+<h2 id="主题选择"><a href="#主题选择" class="headerlink" title="主题选择"></a>主题选择</h2><p>NexT自带四种主题，选了<code>Gemini</code>看起来内容更加全一些</p>
+<h2 id="主题设置"><a href="#主题设置" class="headerlink" title="主题设置"></a>主题设置</h2><p>参照<a href="https://theme-next.org/docs/theme-settings/" target="_blank" rel="noopener">NexT主题设置</a><br>照着自己舒服改了几项，修改项列表：</p>
+<ul>
+<li>打开Github Banner（Octocat还是萌啊，网页右上方有惊喜）</li>
+<li>文章摘要，选择<code>excerpt_description</code></li>
+<li>打开<code>Post Wordcount</code></li>
+<li>打开<code>Post Codeblock Copy</code></li>
+</ul>
+<h2 id="第三方服务设置"><a href="#第三方服务设置" class="headerlink" title="第三方服务设置"></a>第三方服务设置</h2><p>因为github服务器在北美的原因，优先选择海外服务商</p>
+<h3 id="webmaster"><a href="#webmaster" class="headerlink" title="webmaster"></a>webmaster</h3><h3 id="网站分析工具"><a href="#网站分析工具" class="headerlink" title="网站分析工具"></a>网站分析工具</h3><ul>
+<li>Google Analytics<h3 id=""><a href="#" class="headerlink" title=" "></a> </h3></li>
+</ul>
+
       
     </div>
 
@@ -481,6 +512,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/config/" rel="tag"># config</a>
+          
+        </div>
+      
 
       
       
@@ -490,8 +527,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/04/blog-hexo-git-nginx/" rel="next" title="Hexo+git+Nginx -- 光速(大雾)博客配置">
-                <i class="fa fa-chevron-left"></i> Hexo+git+Nginx -- 光速(大雾)博客配置
+              <a href="/2019/02/04/blog-hexo-git-nginx/" rel="next" title="光速(大雾)博客配置I -- Hexo+git+Nginx">
+                <i class="fa fa-chevron-left"></i> 光速(大雾)博客配置I -- Hexo+git+Nginx
               </a>
             
           </div>
@@ -499,10 +536,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/06/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -547,8 +580,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -565,7 +607,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -634,6 +676,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Github-Hexo博客配置"><span class="nav-number">2.</span> <span class="nav-text">Github + Hexo博客配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第零步-在自己电脑上重新装一遍nodejs和Hexo等"><span class="nav-number">2.1.</span> <span class="nav-text">第零步 在自己电脑上重新装一遍nodejs和Hexo等</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步-github-io建立"><span class="nav-number">2.2.</span> <span class="nav-text">第一步 \.github.io建立</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步-更改Hexo部署配置"><span class="nav-number">2.3.</span> <span class="nav-text">第二步 更改Hexo部署配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">2.4.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NexT主题"><span class="nav-number">3.</span> <span class="nav-text">NexT主题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#主题选择"><span class="nav-number">3.1.</span> <span class="nav-text">主题选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题设置"><span class="nav-number">3.2.</span> <span class="nav-text">主题设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方服务设置"><span class="nav-number">3.3.</span> <span class="nav-text">第三方服务设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#webmaster"><span class="nav-number">3.3.1.</span> <span class="nav-text">webmaster</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网站分析工具"><span class="nav-number">3.3.2.</span> <span class="nav-text">网站分析工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">3.3.3.</span> <span class="nav-text"> </span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -659,7 +718,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">4k</span>
+    <span title="站点总字数">5k</span>
   
 
   
@@ -823,6 +882,43 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style>
+
+    
   
 
 
