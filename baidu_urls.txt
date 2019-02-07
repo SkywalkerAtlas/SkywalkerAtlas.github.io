@@ -1,0 +1,2 @@
+http://skywalkeratlas.github.io/2019/02/06/blog-github-next/
+http://skywalkeratlas.github.io/2019/02/04/blog-hexo-git-nginx/
