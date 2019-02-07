@@ -105,7 +105,7 @@
   <meta name="description" content="sudo kill -9 $(pidof depression)">
 <meta property="og:type" content="website">
 <meta property="og:title" content="CT&#39;s blog">
-<meta property="og:url" content="http://skywalkeratlas.github.io/tags/Hexo/index.html">
+<meta property="og:url" content="http://skywalkeratlas.github.io/tags/RSS/index.html">
 <meta property="og:site_name" content="CT&#39;s blog">
 <meta property="og:description" content="sudo kill -9 $(pidof depression)">
 <meta property="og:locale" content="zh-CN">
@@ -118,7 +118,7 @@
 
 
 
-  <link rel="canonical" href="http://skywalkeratlas.github.io/tags/Hexo/">
+  <link rel="canonical" href="http://skywalkeratlas.github.io/tags/RSS/">
 
 
 
@@ -128,7 +128,7 @@
   };
 </script>
 
-  <title>标签: Hexo | CT's blog</title>
+  <title>标签: RSS | CT's blog</title>
   
 
 
@@ -374,7 +374,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>Hexo<small>标签</small>
+        <h1>RSS<small>标签</small>
         </h1>
       </div>
 
@@ -386,43 +386,17 @@
 
       <h2 class="post-title">
         
-          <a class="post-title-link" href="/2019/02/06/blog-github-next/" itemprop="url">
+          <a class="post-title-link" href="/2019/02/07/Docker-RSS/" itemprop="url">
             
-              <span itemprop="name">光速(大雾)博客配置II -- Github + NexT主题</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-06T15:04:24+08:00" content="2019-02-06">
-          02-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/02/04/blog-hexo-git-nginx/" itemprop="url">
-            
-              <span itemprop="name">光速(大雾)博客配置I -- Hexo+git+Nginx</span>
+              <span itemprop="name">搭建自己的专属RSS服务 -- Docker + Tiny Tiny RSS</span>
             
           </a>
         
       </h2>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-04T18:19:54+08:00" content="2019-02-04">
-          02-04
+        <time class="post-time" itemprop="dateCreated" datetime="2019-02-07T15:27:17+08:00" content="2019-02-07">
+          02-07
         </time>
       </div>
 
@@ -846,7 +820,7 @@
       var isPost = ''.length > 0
       var isArchive = '' === 'true'
       var isCategory = ''.length > 0
-      var isTag = 'Hexo'.length > 0
+      var isTag = 'RSS'.length > 0
 
       if (isPost) { //is article page
         var title = ''
@@ -857,7 +831,7 @@
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("光速(大雾)博客配置II -- Github + NexT主题");titles.push("光速(大雾)博客配置I -- Hexo+git+Nginx");' //if you have a better way to get titles of posts, please change it
+        var postsstr = 'titles.push("搭建自己的专属RSS服务 -- Docker + Tiny Tiny RSS");' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {

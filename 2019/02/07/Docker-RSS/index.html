@@ -102,23 +102,25 @@
 
 
 
-  <meta name="description" content="sudo kill -9 $(pidof depression)">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CT&#39;s blog">
-<meta property="og:url" content="http://skywalkeratlas.github.io/index.html">
+  <meta name="description" content="我寻思着服务器买都买了除了达梯子总要派点其它用，正好很想做一波单纯的阅读者读一读自己感兴趣的东西，RSS 启动">
+<meta name="keywords" content="docker,RSS,Tiny Tiny RSS,config">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建自己的专属RSS服务 -- Docker + Tiny Tiny RSS">
+<meta property="og:url" content="http://skywalkeratlas.github.io/2019/02/07/Docker-RSS/index.html">
 <meta property="og:site_name" content="CT&#39;s blog">
-<meta property="og:description" content="sudo kill -9 $(pidof depression)">
+<meta property="og:description" content="我寻思着服务器买都买了除了达梯子总要派点其它用，正好很想做一波单纯的阅读者读一读自己感兴趣的东西，RSS 启动">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-07T15:46:57.548Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CT&#39;s blog">
-<meta name="twitter:description" content="sudo kill -9 $(pidof depression)">
+<meta name="twitter:title" content="搭建自己的专属RSS服务 -- Docker + Tiny Tiny RSS">
+<meta name="twitter:description" content="我寻思着服务器买都买了除了达梯子总要派点其它用，正好很想做一波单纯的阅读者读一读自己感兴趣的东西，RSS 启动">
 
 
 
 
 
 
-  <link rel="canonical" href="http://skywalkeratlas.github.io/">
+  <link rel="canonical" href="http://skywalkeratlas.github.io/2019/02/07/Docker-RSS/">
 
 
 
@@ -128,7 +130,7 @@
   };
 </script>
 
-  <title>CT's blog</title>
+  <title>搭建自己的专属RSS服务 -- Docker + Tiny Tiny RSS | CT's blog</title>
   
 
 
@@ -184,8 +186,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -223,7 +224,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -345,9 +346,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -355,6 +356,8 @@
   
   
 
+  
+    <div class="reading-progress-bar"></div>
   
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
@@ -379,10 +382,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/07/Docker-RSS/" class="post-title-link" itemprop="url">搭建自己的专属RSS服务 -- Docker + Tiny Tiny RSS</a>
+          <h1 class="post-title" itemprop="name headline">搭建自己的专属RSS服务 -- Docker + Tiny Tiny RSS
+
               
             
           </h1>
@@ -446,6 +447,13 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
           
             <div class="post-symbolscount">
@@ -478,6 +486,8 @@
           
 
           
+            <div class="post-description">我寻思着服务器买都买了除了达梯子总要派点其它用，正好很想做一波单纯的阅读者读一读自己感兴趣的东西，RSS 启动</div>
+          
 
         </div>
       </header>
@@ -492,18 +502,25 @@
       
 
       
-        
-          我寻思着服务器买都买了除了达梯子总要派点其它用，正好很想做一波单纯的阅读者读一读自己感兴趣的东西，RSS 启动
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/02/07/Docker-RSS/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>回想起来头一次接触 RSS 的时候还是11年左右的事了，那时候嫌流量少又想看nba新闻，就搞了个RSS订阅，界面真的是丑出天际。七八年过去，流量早已不值钱，我却再次回想起了 RSS 的好，回想起当年丑上天的 RSS 阅读器，虽然简单，但是那快乐温暖纯真，比现在铺天盖地的app推送是高到不知道哪里去了</p>
+<p>既然现在又有了一台服务器，就拿它来做点让自己高兴的活吧，正好自己也需要一个靠谱的方式来 follow（实在想不好中文应该咋说） arXiv 上的 ai 论文和一些自己感兴趣的科技游戏新闻等。RSS 显然是优秀的选择，收费的 RSS 服务虽然好但是是真滴贵，作为一个<del>穷人</del>技术宅当然是要自己搭一个 RSS 服务了</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>得益于 Docker 的发展与壮大，现在配这种功能性的环境真的是比以前方便很多很多，为了能快速搭起来一个 RSS 服务，选择从 Docker 安装 Tiny Tiny RSS</p>
+<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><h3 id="Docker安装"><a href="#Docker安装" class="headerlink" title="Docker安装"></a>Docker安装</h3><p><a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-convenience-script" target="_blank" rel="noopener">官方文档</a> 提供了脚本安装的途径，那么自然是要选择这种最省事的方法了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ curl -fsSL https://get.docker.com -o get-docker.sh</span><br><span class="line">$ sudo sh get-docker.sh</span><br></pre></td></tr></table></figure>
+<p>输入 <code>docker -v</code> 查看版本信息，大功告成</p>
+<h3 id="Docker更新与维护"><a href="#Docker更新与维护" class="headerlink" title="Docker更新与维护"></a>Docker更新与维护</h3><h4 id="权限问题"><a href="#权限问题" class="headerlink" title="权限问题"></a>权限问题</h4><p>默认情况下没有root权限的用户无法使用docker，我们需要<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG docker &lt;user-name&gt;</span><br></pre></td></tr></table></figure></p>
+<p>将用户添加到docker组中</p>
+<h4 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h4><p>更新时<strong>无须再此运行 <code>get-docker.sh</code> 脚本</strong>（脚本包括了检查兼容性检查依赖添加apt库等一系列操作），这里只需要 <code>sudo apt update</code> 然后根据指示升级即可（照着文档意思和脚本代码内容貌似是这样，我也是第一次用这种操作装docker，23333，有差错回来补坑）</p>
+<h2 id="Tiny-Tiny-RSS"><a href="#Tiny-Tiny-RSS" class="headerlink" title="Tiny Tiny RSS"></a>Tiny Tiny RSS</h2><p>原来是打算按照少数派上的一位老哥给出的<a href="https://sspai.com/post/41302" target="_blank" rel="noopener">教程</a>安装一波，但是可能是给出的docker比较老旧的原因，配置不成功，所以换了<a href="https://sspai.com/post/42787" target="_blank" rel="noopener">另一位老哥</a>的教程，并通过他推荐的<a href="https://github.com/HenryQW/docker-ttrss-plugins" target="_blank" rel="noopener">新docker镜像</a>安装</p>
+<p>通过查看<a href="https://github.com/HenryQW/docker-ttrss-plugins" target="_blank" rel="noopener">新镜像的github页面</a>发现它支持<code>docker-compose</code>安装，那自然是越省事越好</p>
+<h3 id="安装-docker-compose"><a href="#安装-docker-compose" class="headerlink" title="安装 docker-compose"></a>安装 docker-compose</h3><p>下载并解压docker-compose<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure></p>
+<p>这里的1.23.2并不一定是最新的，安装前需要去 <a href="https://github.com/docker/compose/releases" target="_blank" rel="noopener">docker-compose 的 Github release 页面</a>查看一下docker-compose的版本（不过话说回来万一以后有更新的版本了也不一定能和镜像作者给的脚本兼容，目前1.23.2是兼容的，到时候不兼容了就继续折腾呗~）</p>
+<h3 id="通过-docker-compose-部署-ttrss-和-postgreSQL"><a href="#通过-docker-compose-部署-ttrss-和-postgreSQL" class="headerlink" title="通过 docker-compose 部署 ttrss 和 postgreSQL"></a>通过 docker-compose 部署 ttrss 和 postgreSQL</h3><h4 id="下载-docker-compose-yml"><a href="#下载-docker-compose-yml" class="headerlink" title="下载 docker-compose.yml"></a>下载 <code>docker-compose.yml</code></h4><p>通过git下载或者直接新建一个yml文件然后复制均可， <a href="https://github.com/HenryQW/docker-ttrss-plugins/blob/master/docker-compose.yml" target="_blank" rel="noopener">地址</a></p>
+<h4 id="更改-docker-compose-yml-设置"><a href="#更改-docker-compose-yml-设置" class="headerlink" title="更改 docker-compose.yml 设置"></a>更改 <code>docker-compose.yml</code> 设置</h4><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">"3"</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="string">database.postgres:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">sameersbn/postgresql:latest</span></span><br><span class="line"><span class="attr">    container_name:</span> <span class="string">postgres</span></span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">PG_PASSWORD=ttrss</span> <span class="comment"># 更改为自己的密码</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">DB_EXTENSION=pg_trgm</span></span><br><span class="line"><span class="attr">    restart:</span> <span class="string">always</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  rss:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">wangqiru/ttrss:latest</span></span><br><span class="line"><span class="attr">    container_name:</span> <span class="string">ttrss</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="number">181</span><span class="string">:80</span> <span class="comment"># 将冒号前的181改成自己想要的端口</span></span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">SELF_URL_PATH=http://&lt;your-ip-address&gt;:181/</span> <span class="comment"># 换成自己的ip地址</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">DB_HOST=database.postgres</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">DB_PORT=5432</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">DB_NAME=ttrss</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">DB_USER=postgres</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">DB_PASS=ttrss</span> <span class="comment"># 和上面的P G_PASSWORD 同步更改</span></span><br><span class="line"><span class="attr">    stdin_open:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    tty:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    restart:</span> <span class="string">always</span></span><br><span class="line"><span class="attr">    command:</span> <span class="string">sh</span> <span class="bullet">-c</span> <span class="string">'sh /wait-for database.postgres:5432 -- php /configure-db.php &amp;&amp; exec s6-svscan /etc/s6/'</span></span><br></pre></td></tr></table></figure>
+<h4 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h4><p>运行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker-compose up -d</span><br></pre></td></tr></table></figure></p>
+<h4 id="测试安装完成"><a href="#测试安装完成" class="headerlink" title="测试安装完成"></a>测试安装完成</h4><p>访问 <code>&lt;your-ip-address&gt;:&lt;your-port&gt;</code> 账号 <code>admin</code>，密码 <code>password</code>，登陆后就可以改成自己的密码了</p>
+<p>舒服了。。服务器真好玩</p>
+
       
     </div>
 
@@ -521,431 +538,68 @@
     
 
     
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Cao Ting</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://skywalkeratlas.github.io/2019/02/07/Docker-RSS/" title="搭建自己的专属RSS服务 -- Docker + Tiny Tiny RSS">http://skywalkeratlas.github.io/2019/02/07/Docker-RSS/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://skywalkeratlas.github.io/2019/02/06/blog-github-next/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cao Ting">
-      <meta itemprop="description" content="sudo kill -9 $(pidof depression)">
-      <meta itemprop="image" content="/uploads/avatar-oct.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CT's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/06/blog-github-next/" class="post-title-link" itemprop="url">光速(大雾)博客配置II -- Github + NexT主题</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-06 15:04:24" itemprop="dateCreated datePublished" datetime="2019-02-06T15:04:24+08:00">2019-02-06</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-02-07 13:04:02" itemprop="dateModified" datetime="2019-02-07T13:04:02+08:00">2019-02-07</time>
-              
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/config/" itemprop="url" rel="index"><span itemprop="name">config</span></a></span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> docker</a>
           
-
+            <a href="/tags/RSS/" rel="tag"><i class="fa fa-tag"></i> RSS</a>
           
-            
-            
+            <a href="/tags/Tiny-Tiny-RSS/" rel="tag"><i class="fa fa-tag"></i> Tiny Tiny RSS</a>
           
-
+            <a href="/tags/config/" rel="tag"><i class="fa fa-tag"></i> config</a>
           
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">3.6k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">3 分钟</span>
-              
-            </div>
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          前天还觉得博客搭在Github上不够骚的我回头就是一个真香
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/02/06/blog-github-next/">
-                阅读全文 &raquo;
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/06/blog-github-next/" rel="next" title="光速(大雾)博客配置II -- Github + NexT主题">
+                <i class="fa fa-chevron-left"></i> 光速(大雾)博客配置II -- Github + NexT主题
               </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://skywalkeratlas.github.io/2019/02/04/blog-hexo-git-nginx/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cao Ting">
-      <meta itemprop="description" content="sudo kill -9 $(pidof depression)">
-      <meta itemprop="image" content="/uploads/avatar-oct.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CT's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/04/blog-hexo-git-nginx/" class="post-title-link" itemprop="url">光速(大雾)博客配置I -- Hexo+git+Nginx</a>
-              
             
-          </h1>
-        
+          </div>
 
-        <div class="post-meta">
-          <span class="post-time">
+          <span class="post-nav-divider"></span>
 
+          <div class="post-nav-prev post-nav-item">
             
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-04 18:19:54" itemprop="dateCreated datePublished" datetime="2019-02-04T18:19:54+08:00">2019-02-04</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-02-06 19:38:03" itemprop="dateModified" datetime="2019-02-06T19:38:03+08:00">2019-02-06</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/config/" itemprop="url" rel="index"><span itemprop="name">config</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">3.6k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">3 分钟</span>
-              
-            </div>
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          9102年曹丁丁发现了新的时光机 -- 玩服务器
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/02/04/blog-hexo-git-nginx/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -955,14 +609,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -983,8 +638,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -1105,6 +769,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker"><span class="nav-number">2.1.</span> <span class="nav-text">Docker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker安装"><span class="nav-number">2.1.1.</span> <span class="nav-text">Docker安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker更新与维护"><span class="nav-number">2.1.2.</span> <span class="nav-text">Docker更新与维护</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#权限问题"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">权限问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">更新</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tiny-Tiny-RSS"><span class="nav-number">2.2.</span> <span class="nav-text">Tiny Tiny RSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-docker-compose"><span class="nav-number">2.2.1.</span> <span class="nav-text">安装 docker-compose</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-docker-compose-部署-ttrss-和-postgreSQL"><span class="nav-number">2.2.2.</span> <span class="nav-text">通过 docker-compose 部署 ttrss 和 postgreSQL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载-docker-compose-yml"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">下载 docker-compose.yml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更改-docker-compose-yml-设置"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">更改 docker-compose.yml 设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#部署"><span class="nav-number">2.2.2.3.</span> <span class="nav-text">部署</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试安装完成"><span class="nav-number">2.2.2.4.</span> <span class="nav-text">测试安装完成</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1279,6 +960,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
 
   
 
@@ -1289,6 +974,8 @@
 
   
 
+
+  
 
 
   
@@ -1363,13 +1050,13 @@
       var articles = db.collection('articles')
 
       //https://hexo.io/docs/variables.html
-      var isPost = ''.length > 0
+      var isPost = '搭建自己的专属RSS服务 -- Docker + Tiny Tiny RSS'.length > 0
       var isArchive = '' === 'true'
       var isCategory = ''.length > 0
       var isTag = ''.length > 0
 
       if (isPost) { //is article page
-        var title = ''
+        var title = '搭建自己的专属RSS服务 -- Docker + Tiny Tiny RSS'
         var doc = articles.doc(title)
 
         getCount(doc, true).then(appendCountTo($('.post-meta')))
@@ -1377,7 +1064,7 @@
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("搭建自己的专属RSS服务 -- Docker + Tiny Tiny RSS");titles.push("光速(大雾)博客配置II -- Github + NexT主题");titles.push("光速(大雾)博客配置I -- Hexo+git+Nginx");' //if you have a better way to get titles of posts, please change it
+        var postsstr = '' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {
@@ -1401,54 +1088,7 @@
 
   
   
-    
-      
-    
-      
-        
-      
-    
-      
-    
-  
 
-  
-    
-      <script type="text/x-mathjax-config">
-  
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-      for (i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-  });
-</script>
-<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<style>
-.MathJax_Display {
-  overflow: auto hidden;
-}
-</style>
-
-    
   
 
 
