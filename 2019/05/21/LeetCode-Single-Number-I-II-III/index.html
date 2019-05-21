@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="CT&#39;s blog">
 <meta property="og:description" content="~~位运算，牛逼儿（破音~~ 等一下，Python牛逼儿">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-21T06:04:40.329Z">
+<meta property="og:updated_time" content="2019-05-21T09:24:26.441Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode-Single-Number-I-II-III">
 <meta name="twitter:description" content="~~位运算，牛逼儿（破音~~ 等一下，Python牛逼儿">
@@ -408,7 +408,7 @@
                 
               
 
-              <time title="创建时间：2019-05-21 00:37:35 / 修改时间：14:04:40" itemprop="dateCreated datePublished" datetime="2019-05-21T00:37:35+08:00">2019-05-21</time>
+              <time title="创建时间：2019-05-21 00:37:35 / 修改时间：17:24:26" itemprop="dateCreated datePublished" datetime="2019-05-21T00:37:35+08:00">2019-05-21</time>
             
 
             
@@ -466,7 +466,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.7k</span>
+                <span title="本文字数">6.8k</span>
               
 
               
@@ -480,7 +480,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">2 分钟</span>
+                <span title="阅读时长">6 分钟</span>
               
             </div>
           
@@ -516,8 +516,143 @@
 <p><strong>Example 1:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [2,2,3,2]</span><br><span class="line">Output: 3</span><br></pre></td></tr></table></figure></p>
 <p><strong>Example 2:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [0,1,0,1,0,1,99]</span><br><span class="line">Output: 99</span><br></pre></td></tr></table></figure></p>
 <h2 id="解-1"><a href="#解-1" class="headerlink" title="解"></a>解</h2><p>这题和之前那题乍看和前一题一样，但其实仔细一想并不是，只有在重复项出现偶数次，要找的那个数出现奇数次时，简单的异或运算才能发挥它的作用。这题实在是难到我了，翻开<a href="https://leetcode.com/problems/single-number-ii/discuss/43295/Detailed-explanation-and-generalization-of-the-bitwise-operation-method-for-single-numbers" title="Detailed explanation and generalization of the bitwise operation method for single numbers" target="_blank" rel="noopener">Discuss最高票回答</a>看得头皮发麻似懂非懂，好在还有一位老哥给出了<a href="[https://leetcode.com/problems/single-number-ii/discuss/43296/An-General-Way-to-Handle-All-this-sort-of-questions.]" title="An General Way to Handle All this sort of questions.">基于数字电路的解题思路</a>，总的来说就是将之前一题的解题思路扩展，前一题异或之所以有效，是因为二进制下的异或操作会消去所有出现偶数次的0和1，那么对于重复项出现K次，要找的数出现M次情况，只需要设计一个类似于K进制的异或操作即可。</p>
-<p>题目中重复项出现三次（也就是出现1，2，3次），对于三种情况，最少需要 $\biggl\lceil\log_{2}3\biggr\rceil\=2$ 2位来表示，那么至少需要对于1-bit的情况，可以得到如下真值表<br>当前位</p>
-<h1 id="260-Single-Number-III"><a href="#260-Single-Number-III" class="headerlink" title="260. Single Number III"></a>260. Single Number III</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://leetcode.com/problems/single-number-ii/discuss/43295/Detailed-explanation-and-generalization-of-the-bitwise-operation-method-for-single-numbers" title="Detailed explanation and generalization of the bitwise operation method for single numbers" target="_blank" rel="noopener">https://leetcode.com/problems/single-number-ii/discuss/43295/Detailed-explanation-and-generalization-of-the-bitwise-operation-method-for-single-numbers</a><br><a href="[https://leetcode.com/problems/single-number-ii/discuss/43296/An-General-Way-to-Handle-All-this-sort-of-questions.]" title="An General Way to Handle All this sort of questions.">https://leetcode.com/problems/single-number-ii/discuss/43296/An-General-Way-to-Handle-All-this-sort-of-questions.</a></p>
+<p>题目中重复项出现三次（也就是出现1，2，3次），对于三种情况，最少需要 $\biggl\lceil\log_{2}3\biggr\rceil=2$ 位来表示，对于1-bit的情况，可以得到如下真值表</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>当前位</th>
+<th>下一位</th>
+<th>结果位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a  b</td>
+<td>c</td>
+<td>a’  b’</td>
+</tr>
+<tr>
+<td>0 0</td>
+<td>0</td>
+<td>0 0</td>
+</tr>
+<tr>
+<td>0 1</td>
+<td>0</td>
+<td>0 1</td>
+</tr>
+<tr>
+<td>1 0</td>
+<td>0</td>
+<td>1 0</td>
+</tr>
+<tr>
+<td>0 0</td>
+<td>1</td>
+<td>0 1</td>
+</tr>
+<tr>
+<td>0 1</td>
+<td>1</td>
+<td>1 0</td>
+</tr>
+<tr>
+<td>1 0</td>
+<td>1</td>
+<td>0 0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>然后根据真值表写出逻辑表达式 $a = a\overline{b}\overline{c} + \overline{a}bc$， $b = \overline{a}b\overline{c} + \overline{a}\overline{b}c$，那么就可以得到相应的python式子啦<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a, b = (a&amp;~b&amp;~c) | (~a&amp;b&amp;c), (a&amp;~b&amp;~c) | (~a&amp;b&amp;c)</span><br></pre></td></tr></table></figure></p>
+<p>32位int的情况在这里其实与1-bit没有什么差别（毕竟异或位运算是分开算的- -），接下来需要确定的是经过异或运算以后，需要返回的值是什么，这里原作者老哥貌似是理解错了题意，所以只给出了一个通解，<a href="https://leetcode.com/problems/single-number-ii/discuss/43295/Detailed-explanation-and-generalization-of-the-bitwise-operation-method-for-single-numbers" title="Detailed explanation and generalization of the bitwise operation method for single numbers" target="_blank" rel="noopener">Discuss最高票回答</a>解释得更为详细一点。由于我们在表示三种情况时，用了ab来表示1、2、3次（比如出现一次为 <code>01</code>，<code>a=0, b=1</code>，出现两次为 <code>10</code>），所以根据题意，要找的那个数字只出现一次，所以只要返回b值即可，如果要找的数字出现两次，那么返回a值即可，如果要一个通解的话那么返回 <code>a|b</code> 也行，但这样的话多做一次位运算。</p>
+<p>完整python代码如下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">singleNumber</span><span class="params">(self, nums: List[int])</span> -&gt; int:</span></span><br><span class="line">        a, b = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> nums:</span><br><span class="line">            a, b = (a&amp;~b&amp;~c) | (~a&amp;b&amp;c), (~a&amp;b&amp;~c)|(~a&amp;~b&amp;c)</span><br><span class="line">        <span class="keyword">return</span> b</span><br></pre></td></tr></table></figure></p>
+<h2 id="更优解"><a href="#更优解" class="headerlink" title="更优解"></a>更优解</h2><p>为了求得a和b，上面的逻辑表达式总共要进行14次位运算，其中有大量的计算显然是重复的，可以把b化简成 <code>b1 = ~a &amp; (b &amp; ~c | ~b &amp; c) = ~a &amp; b ^ c</code> 这样只需要三次位运算就可以得到b，然后再次通过真值表</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>b1</th>
+<th>c</th>
+<th>a’</th>
+<th>b’</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>可以得到 <code>a = ~b1 &amp; (a ^ c)</code></p>
+<p>这样的话一共通过六次位运算就可以迭代一次ab的值，而且也没有增加额外的空间，更新后的python代码如下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">singleNumber</span><span class="params">(self, nums: List[int])</span> -&gt; int:</span></span><br><span class="line">        a, b = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> nums:</span><br><span class="line">            b = b ^ c &amp; ~a</span><br><span class="line">            a = a ^ c &amp; ~b</span><br><span class="line">        <span class="keyword">return</span></span><br></pre></td></tr></table></figure></p>
+<p>LeetCode给出的结果是比之前的版本快个10%~20%左右</p>
+<h2 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h2><p>其实这里的通解算法要表达所有的k和p还是会有点问题的（设重复项出现k次，要求的数出现p次），那就是 $\biggl\lceil\log_{2}p\biggr\rceil&gt;\biggl\lceil\log_{2}k\biggr\rceil$ 的时候,所选用的信息位不够表达所求数的出现次数情况</p>
+<p>当然了其实对于很多数k，可以通过先约简的方法来做。但是对于一个比较大的质数，还是有一点讨论的余地的。</p>
+<p>比如说k=113，p=199，要用7位来表示（a,b,c…)，虽然返回 <code>a|b|c|...</code> 必定会得到正确解，但是如果我们想省一点计算量（当p数值很大的时候其实还是有一丢丢丢优化的），这里的话因为p的值199超出了 $2^7$ 的表示范围，想要直接确定返回值会有一点点问题</p>
+<p>这里的话处理方法其实也很简单，只需要把 <code>p = p%k</code> 即可，这样的话能保证p一定是比k小的，同时也不会影响到最后的结果（因为所有出现超过k次的数都会被k位异或操作清0）</p>
+<h1 id="260-Single-Number-III"><a href="#260-Single-Number-III" class="headerlink" title="260. Single Number III"></a>260. Single Number III</h1><h2 id="题目-2"><a href="#题目-2" class="headerlink" title="题目"></a>题目</h2><p>Given an array of numbers nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once.</p>
+<p>Example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input:  [1,2,1,3,2,5]</span><br><span class="line">Output: [3,5]</span><br></pre></td></tr></table></figure></p>
+<p><strong>Note:</strong></p>
+<p>The order of the result is not important. So in the above example, [5, 3] is also correct.<br>Your algorithm should run in linear runtime complexity. Could you implement it using only constant space complexity?</p>
+<h2 id="解-2"><a href="#解-2" class="headerlink" title="解"></a>解</h2><p>这题的解法严格意义上来说与前面两题其实并不是同一个套路，但是思想上有一定的相似之处。把所有数字异或一遍，结果其实就是要求得的两个数的异或值，因为两个数是不同的，所以结果必然会有至少一位是1。对于这两个数来说（数字x,y），在这一位上x和y的取值有所不同，假设x在这一位上取0，y取1，那么对于其余的数字，必然有偶数个在这一位上取0，有偶数个在这一位上取1。把x与在这一位上取0的所有数字异或即可得到x，与此同理也可得到y</p>
+<p>代码如下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">singleNumber</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        xor = <span class="number">0</span></span><br><span class="line">        x = <span class="number">0</span></span><br><span class="line">        y = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> nums:</span><br><span class="line">            xor ^= num</span><br><span class="line">        mask = <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span>(xor &amp; mask == <span class="number">0</span>):</span><br><span class="line">            mask = mask &lt;&lt; <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> nums:</span><br><span class="line">            <span class="keyword">if</span> num &amp; mask == <span class="number">0</span>:</span><br><span class="line">                x ^= num</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                y ^= num</span><br><span class="line">        <span class="keyword">return</span> [x, y]</span><br></pre></td></tr></table></figure></p>
+<p>虽然通过 <code>xor &amp;= -xor</code> 的方式求这个mask值更加简短优雅一些，但我觉得从最低位一位一位往上移直到第一个1出现的搜索方法更加直观一些，而且两者并没有在LeetCode上表现出性能上的差别</p>
+<h2 id="更多情况"><a href="#更多情况" class="headerlink" title="更多情况"></a>更多情况</h2><h3 id="稍微扩展"><a href="#稍微扩展" class="headerlink" title="稍微扩展"></a>稍微扩展</h3><p>加入两个数出现1次，其余数出现3次，那么也可以用第二题与第三题思路结合的方式来做，通过真值表写出表达式，b值就是两个数x与y三进制异或的结果，再通过第三题的思路，继续与mask位相同的其余数三进制异或，就可以得到x与y的</p>
+<p>两个数出现2次，其余数出现3次的情况也类似，只要对a值做操作就可以了</p>
+<p>求两个数出现两次，其余数出现三次的代码如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">singleNumber</span><span class="params">(nums)</span>:</span></span><br><span class="line">    a, b = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> c <span class="keyword">in</span> nums:</span><br><span class="line">        b = b ^ c &amp; ~a</span><br><span class="line">        a = a ^ c &amp; ~b</span><br><span class="line"></span><br><span class="line">    x, y = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    xa, xb, ya, yb = <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    mask = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> (a &amp; mask == <span class="number">0</span>):</span><br><span class="line">        mask = mask &lt;&lt; <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> c <span class="keyword">in</span> nums:</span><br><span class="line">        <span class="keyword">if</span> c &amp; mask == <span class="number">0</span>:</span><br><span class="line">            xb = xb ^ c &amp; ~xa</span><br><span class="line">            xa = xa ^ c &amp; ~xb</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            yb = yb ^ c &amp; ~ya</span><br><span class="line">            ya = ya ^ c &amp; ~yb</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> [xa, ya]</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    print(singleNumber([<span class="number">2</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">7</span>,<span class="number">4</span>]))</span><br></pre></td></tr></table></figure>
+<h3 id="再进一步"><a href="#再进一步" class="headerlink" title="再进一步"></a>再进一步</h3><p>假如两个数可以出现1次或2次，其余数出现3次，貌似也可以用第二题真值表的方法来写出表达式解题，但是这种情况下难以判断两个数具体的出现次数分布情况，可以说是很头皮发麻了。如果是三个数出现p次，情况会更复杂。更进一步，假设我们有N个数，其中n个数出现p次，N-n个数出现k次，还能够保持O(n)时间O(1)空间嘛？</p>
+<h3 id="Python救我"><a href="#Python救我" class="headerlink" title="Python救我"></a>Python救我</h3><p>其实只要k和N-n保持一定的正比例关系，python还是可以做到的，稍微看了下第三题submission结果里别的解，居然还有类似这样的解，而且时间和空间开销都与位运算相似</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="comment"># @param &#123;integer[]&#125; nums</span></span><br><span class="line">    <span class="comment"># @return &#123;integer&#125;</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">singleNumber</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        a= set(nums)</span><br><span class="line">        a = sum(a)*<span class="number">3</span> - sum(nums)</span><br><span class="line">        a = a/<span class="number">2</span></span><br><span class="line">        <span class="keyword">return</span> a</span><br></pre></td></tr></table></figure>
+<p>惊了，这些解乍一看会需要O(n)空间，然而其实并不用，回想一下其实python中的set设计是基于hashmap的, <code>set(nums)</code> 其实并没有加入O(n)空间（只是加入了一些键），通过简单调用一下测试程序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> memory_profiler <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="meta">@profile(precision=4)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">    a = [random.randint(<span class="number">1</span>, <span class="number">100</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">100000</span>)]</span><br><span class="line">    b = set(a)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th># line</th>
+<th>Mem Usage</th>
+<th>Increment</th>
+<th>Line Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6</td>
+<td>37.5430 MiB</td>
+<td>0.9727 MiB</td>
+<td>a = [random.randint(1, 100) for _ in range(100000)]</td>
+</tr>
+<tr>
+<td>7</td>
+<td>37.5430 MiB</td>
+<td>0.0000 MiB</td>
+<td>b = set(a)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>可以看到在 <code>b=set(a)</code> 这边几乎是没有增加任何空间的，LeetCode上的提交结果在内存结果上也证实了这一点</p>
+<p>那么如果能够用collection类里的Counter的话（Counter也是基于hashmap的），扩展情况就变得比较简单了，只需统计一下Counter，然后most_common以下就可以得到结果了</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://leetcode.com/problems/single-number-ii/discuss/43295/Detailed-explanation-and-generalization-of-the-bitwise-operation-method-for-single-numbers" title="Detailed explanation and generalization of the bitwise operation method for single numbers" target="_blank" rel="noopener">https://leetcode.com/problems/single-number-ii/discuss/43295/Detailed-explanation-and-generalization-of-the-bitwise-operation-method-for-single-numbers</a><br><a href="[https://leetcode.com/problems/single-number-ii/discuss/43296/An-General-Way-to-Handle-All-this-sort-of-questions.]" title="An General Way to Handle All this sort of questions.">https://leetcode.com/problems/single-number-ii/discuss/43296/An-General-Way-to-Handle-All-this-sort-of-questions.</a><br><a href="[https://leetcode.com/problems/single-number-iii/discuss/68900/Accepted-C%2B%2BJava-O(n)-time-O(1)-space-Easy-Solution-with-Detail-Explanations]" title="Accepted C++/Java O(n)-time O(1)-space Easy Solution with Detail Explanations">https://leetcode.com/problems/single-number-iii/discuss/68900/Accepted-C%2B%2BJava-O(n)-time-O(1)-space-Easy-Solution-with-Detail-Explanations</a><br><a href="[https://leetcode.com/problems/single-number-iii/discuss/68931/Easy-Python-O(n)-O(1)-solution]" title="Easy Python O(n) - O(1) solution">https://leetcode.com/problems/single-number-iii/discuss/68931/Easy-Python-O(n)-O(1)-solution</a></p>
 
       
     </div>
@@ -784,7 +919,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#136-Single-Number-I"><span class="nav-number">1.</span> <span class="nav-text">136. Single Number I</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解"><span class="nav-number">1.2.</span> <span class="nav-text">解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#137-Single-Number-II"><span class="nav-number">2.</span> <span class="nav-text">137. Single Number II</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目-1"><span class="nav-number">2.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解-1"><span class="nav-number">2.2.</span> <span class="nav-text">解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#260-Single-Number-III"><span class="nav-number">3.</span> <span class="nav-text">260. Single Number III</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#136-Single-Number-I"><span class="nav-number">1.</span> <span class="nav-text">136. Single Number I</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解"><span class="nav-number">1.2.</span> <span class="nav-text">解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#137-Single-Number-II"><span class="nav-number">2.</span> <span class="nav-text">137. Single Number II</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目-1"><span class="nav-number">2.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解-1"><span class="nav-number">2.2.</span> <span class="nav-text">解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更优解"><span class="nav-number">2.3.</span> <span class="nav-text">更优解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#碎碎念"><span class="nav-number">2.4.</span> <span class="nav-text">碎碎念</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#260-Single-Number-III"><span class="nav-number">3.</span> <span class="nav-text">260. Single Number III</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目-2"><span class="nav-number">3.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解-2"><span class="nav-number">3.2.</span> <span class="nav-text">解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更多情况"><span class="nav-number">3.3.</span> <span class="nav-text">更多情况</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#稍微扩展"><span class="nav-number">3.3.1.</span> <span class="nav-text">稍微扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#再进一步"><span class="nav-number">3.3.2.</span> <span class="nav-text">再进一步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python救我"><span class="nav-number">3.3.3.</span> <span class="nav-text">Python救我</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
@@ -816,7 +951,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">11k</span>
+    <span title="站点总字数">16k</span>
   
 
   
@@ -825,7 +960,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">10 分钟</span>
+    <span title="站点阅读时长">15 分钟</span>
   
 </div>
 
