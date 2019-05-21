@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="CT&#39;s blog">
 <meta property="og:description" content="~~位运算，牛逼儿（破音~~ 等一下，Python牛逼儿">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-20T18:02:16.076Z">
+<meta property="og:updated_time" content="2019-05-21T06:03:18.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode-Single-Number-I-II-III">
 <meta name="twitter:description" content="~~位运算，牛逼儿（破音~~ 等一下，Python牛逼儿">
@@ -408,7 +408,7 @@
                 
               
 
-              <time title="创建时间：2019-05-21 00:37:35 / 修改时间：02:02:16" itemprop="dateCreated datePublished" datetime="2019-05-21T00:37:35+08:00">2019-05-21</time>
+              <time title="创建时间：2019-05-21 00:37:35 / 修改时间：14:03:18" itemprop="dateCreated datePublished" datetime="2019-05-21T00:37:35+08:00">2019-05-21</time>
             
 
             
@@ -466,7 +466,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.2k</span>
+                <span title="本文字数">1.7k</span>
               
 
               
@@ -480,7 +480,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长">2 分钟</span>
               
             </div>
           
@@ -515,8 +515,10 @@
 <p>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
 <p><strong>Example 1:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [2,2,3,2]</span><br><span class="line">Output: 3</span><br></pre></td></tr></table></figure></p>
 <p><strong>Example 2:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [0,1,0,1,0,1,99]</span><br><span class="line">Output: 99</span><br></pre></td></tr></table></figure></p>
-<h2 id="解-1"><a href="#解-1" class="headerlink" title="解"></a>解</h2><p>这题和之前那题乍看和前一题一样，但其实仔细一想并不是，只有在重复项出现偶数次，要找的那个数出现奇数次时，简单的异或运算才能发挥它的作用。</p>
-<h1 id="260-Single-Number-III"><a href="#260-Single-Number-III" class="headerlink" title="260. Single Number III"></a>260. Single Number III</h1>
+<h2 id="解-1"><a href="#解-1" class="headerlink" title="解"></a>解</h2><p>这题和之前那题乍看和前一题一样，但其实仔细一想并不是，只有在重复项出现偶数次，要找的那个数出现奇数次时，简单的异或运算才能发挥它的作用。这题实在是难到我了，翻开<a href="https://leetcode.com/problems/single-number-ii/discuss/43295/Detailed-explanation-and-generalization-of-the-bitwise-operation-method-for-single-numbers" title="Detailed explanation and generalization of the bitwise operation method for single numbers" target="_blank" rel="noopener">Discuss最高票回答</a>看得头皮发麻似懂非懂，好在还有一位老哥给出了<a href="[https://leetcode.com/problems/single-number-ii/discuss/43296/An-General-Way-to-Handle-All-this-sort-of-questions.]" title="An General Way to Handle All this sort of questions.">基于数字电路的解题思路</a>，总的来说就是将之前一题的解题思路扩展，前一题异或之所以有效，是因为二进制下的异或操作会消去所有出现偶数次的0和1，那么对于重复项出现K次，要找的数出现M次情况，只需要设计一个类似于K进制的异或操作即可。</p>
+<p>题目中重复项出现三次（也就是出现1，2，3次），对于三种情况，最少需要 $\biggl\lceil\log_{2}3\biggr\rceil\=2$ 2位来表示，那么至少需要对于1-bit的情况，可以得到如下真值表<br>当前位</p>
+<h1 id="260-Single-Number-III"><a href="#260-Single-Number-III" class="headerlink" title="260. Single Number III"></a>260. Single Number III</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://leetcode.com/problems/single-number-ii/discuss/43295/Detailed-explanation-and-generalization-of-the-bitwise-operation-method-for-single-numbers" title="Detailed explanation and generalization of the bitwise operation method for single numbers" target="_blank" rel="noopener">https://leetcode.com/problems/single-number-ii/discuss/43295/Detailed-explanation-and-generalization-of-the-bitwise-operation-method-for-single-numbers</a><br><a href="[https://leetcode.com/problems/single-number-ii/discuss/43296/An-General-Way-to-Handle-All-this-sort-of-questions.]" title="An General Way to Handle All this sort of questions.">https://leetcode.com/problems/single-number-ii/discuss/43296/An-General-Way-to-Handle-All-this-sort-of-questions.</a></p>
+
       
     </div>
 
@@ -782,7 +784,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#136-Single-Number-I"><span class="nav-number">1.</span> <span class="nav-text">136. Single Number I</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解"><span class="nav-number">1.2.</span> <span class="nav-text">解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#137-Single-Number-II"><span class="nav-number">2.</span> <span class="nav-text">137. Single Number II</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目-1"><span class="nav-number">2.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解-1"><span class="nav-number">2.2.</span> <span class="nav-text">解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#260-Single-Number-III"><span class="nav-number">3.</span> <span class="nav-text">260. Single Number III</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#136-Single-Number-I"><span class="nav-number">1.</span> <span class="nav-text">136. Single Number I</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解"><span class="nav-number">1.2.</span> <span class="nav-text">解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#137-Single-Number-II"><span class="nav-number">2.</span> <span class="nav-text">137. Single Number II</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目-1"><span class="nav-number">2.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解-1"><span class="nav-number">2.2.</span> <span class="nav-text">解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#260-Single-Number-III"><span class="nav-number">3.</span> <span class="nav-text">260. Single Number III</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
